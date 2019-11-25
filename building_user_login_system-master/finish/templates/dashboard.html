@@ -1,0 +1,154 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% block scripts %}
+  {{super()}}
+  <!--script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{{url_for('.static', filename='vm.js')}}"></script>
+  <!--script type="text/javascript">
+    $(document).ready(showVM('/winvm'));
+  </script-->
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="https://upload.wikimedia.org/wikipedia/zh/thumb/8/83/CYCU.svg/1200px-CYCU.svg.png" width="20" height="20" alt=""></a>
+          <a class="navbar-brand" href="#" style="color:white;" >BigUncleCloud</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Windows VM</a></li>
+            <li><a href="#">Linuxs VM</a></li>
+            <li><a href="#">MacOS VM</a></li>
+            <li><a href="#">Cloud Applications</a></li>
+            <li><a href="#">Cloud Storage</a></li>
+          </ul>
+          <!--ul class="nav nav-sidebar">
+            <li><a href="">Nav item</a></li>
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+            <li><a href="">More navigation</a></li>
+          </ul-->
+          <!--ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul-->
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">          
+          <h1 class="page-header">Welcome, {{ name }}</h1>
+          <a href="javascript:void(0);" onclick="showAtRight('/winvm')" class="btn btn-outline-success" style="background-color:green; color:white; position:fixed; right:50px;">+New</a>
+          <!--button type="button" class="btn btn-outline-success">New+</button-->
+          <!--p>this motherfucker has no vms at all</p-->
+
+          <!--div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+          </div-->
+          
+          <!--form class="form-vm" method="POST" action="/launch"-->
+          <!--div id="content">
+          <div class="card" style="width: 25rem; background-clip:border-box; border: 2px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem; flex-direction: column;">
+            <img class="card-img-top" style="height: 180px; width: 100%; display: block;" src="https://images.idgesg.net/images/article/2017/10/windows-10-logo-100739284-large.jpg">
+            <div class="card-body" style="font-family: 微軟正黑體; text-align:center; padding: 1.25rem; flex: 1 1 auto;">
+              <p class="card-text">俺的win10虛擬機</p>
+              <a href="/launch"input type="submit" class="btn btn-primary" style="position:inherit; background-color:whitesmoke; color:black;">Launch</a>
+            </div>
+          </div>
+          </div-->
+          <!--/form-->
+
+          <h4>ajax測試區塊</h4>
+          
+          
+          <div id="content">
+           
+  
+          </div>
+
+
+
+        </div>
+
+        
+      </div>
+    </div>
+    <!--script type="text/javascript">
+    $(document).ready(showVM('/vm'));
+    </script-->
+
+    <!--script type="text/javascript">
+      function showAtRight(url){
+          $.ajax({
+              type :"GET",
+              url : url,
+              dataType:"html",
+              success : function(data) {//返回資料根據結果進行相應的處理
+                  $("#content").html(data);
+              },
+              error:function(){
+                  $("#content").html("獲取資料失敗！");
+              }
+          });
+      }
+  </script-->
+{% endblock %}
