@@ -1,3 +1,41 @@
+function showAtmid(url,place,name){
+    $.ajax({
+        type: "POST",
+        url: url ,
+        data: {'name':name} ,
+        //success: success ,
+        dataType: 'json'
+        });
+
+    $.ajax({
+        type :"GET",
+        url : url,
+        dataType:"html",
+        success : function(data) {//返回資料根據結果進行相應的處理
+            //cool=cool+data
+            $(place).html(data);
+        },
+        error:function(){
+            $(place).html("獲取資料失敗！");
+        }
+    });
+}
+
+function showAtLeft(url,place){
+    $.ajax({
+        type :"GET",
+        url : url,
+        dataType:"html",
+        success : function(data) {//返回資料根據結果進行相應的處理
+            //cool=cool+data
+            $(place).html(data);
+        },
+        error:function(){
+            $(place).html("獲取資料失敗！");
+        }
+    });
+}
+
 function showAtRight(url,place){
     $.ajax({
         type :"GET",

@@ -85,8 +85,8 @@ Dashboard
           </ul-->
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">  
-          <a href="javascript:void(0);" onclick="showAtRight('/linvm', '#content2')" class="btn btn-outline-success" style="background-color:green; color:white; position:fixed; right:50px;">+New</a>        
-          <h1 class="page-header">Welcome, {{ name }}</h1>
+          <a href="javascript:void(0);" onclick="showAtLeft('/new', '#content')" class="btn btn-outline-success" style="background-color:green; color:white; position:fixed; right:50px;">+New</a>        
+          <h1 class="page-header">{{Welcome}} {{ name }}</h1>
           <!--a href="javascript:void(0);" onclick="showAtRight('/linvm')" class="btn btn-outline-success" style="background-color:green; color:white; position:fixed; right:50px;">+New</a-->
           <!--button type="button" class="btn btn-outline-success">New+</button-->
           <!--p>this motherfucker has no vms at all</p-->
@@ -131,6 +131,7 @@ Dashboard
             <p>cool</p>
           </div-->
           <div id="content">
+            <!--iframe src="{{vmurl}}" frameborder="0"></iframe-->
             <div class="row">
               <div class="col-sm-4">
                   <div id="content1">
